@@ -22,13 +22,13 @@ const input = readline.createInterface({
     output: process.stdout
 });
 input.question("Siapa nama kamu?" , (nama) =>{
-    console.info(Hallo ${nama})
+    console.info(Hallo, $(nama))
 input.question("Apa jurusanmu?" , (jurusan) =>{
-    console.info(jurusan: ${jurusan})
+    console.info(jurusan, $(jurusan))
 input.question("Apa nama universitasmu?" , (universitas) =>{
-    console.info(universitas: ${universitas})
+    console.info(universitas, $(universitas))
 input.question("berapa umurmu?" , (umur) =>{
-    console.info(umur : ${umur})
+    console.info(umur, $(umur))
     
     
     input.close();
