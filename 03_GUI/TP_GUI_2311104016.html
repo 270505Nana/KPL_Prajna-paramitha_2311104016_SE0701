@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> TP 03 </title>
+    <style>
+        /* letak form inputannya */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 100px;
+        }
+        /* kotak inputan */
+        input {
+            padding: 10px;
+            width: 300px; /*panjang dari form inputannya mau seberapa*/
+            margin-bottom: 10px;
+        }
+        /* button submitnya */
+        button {
+            padding: 10px 50px;
+            background-color: rgb(255, 155, 205);
+            color: white;
+            border: none; /*untuk menghilangkan border dari buttonnya*/
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2> TP 03 - GUI </h2>
+    <input type="text" id="nama" placeholder="Masukkan Nama">
+    <br>
+    <button onclick="submitNama()">Submit</button>
+    <p id="output"></p>
+
+    <script>
+        function submitNama() {
+            var nama = document.getElementById("nama").value;
+            var output = document.getElementById("output");
+            if (nama) {
+                output.textContent = "Halo " + nama;
+            } else {
+                output.textContent = "Silakan masukkan nama";
+            }
+        }
+    </script>
+</body>
+</html>
