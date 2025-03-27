@@ -1,7 +1,9 @@
 class SayaTubeVideo {
     constructor(title) {
         // Validasi: Judul tidak boleh kosong dan maksimal 100 karakter
-        if (!title || title.length > 100) {
+        // Ditambahkan design by contract menjadi Judul video memiliki panjang maksimal 200 karakter.
+        if (!title || title.length > 200) {
+            // ditambahkan design by contract not null
             throw new Error("Title tidak boleh kosong dan harus kurang dari 100 karakter.");
         }
         
@@ -18,8 +20,9 @@ class SayaTubeVideo {
 
     increasePlayCount(count) {
         // Validasi: Play count harus dalam rentang 0 hingga 10.000.000
-        if (count < 0 || count > 10000000) {
-            throw new Error("Jumlah penambahan play count harus antara 0 hingga 10.000.000.");
+        // rantang diubah menjadi 25.000.000
+        if (count < 0 || count > 25000000) {
+            throw new Error("Jumlah penambahan play count harus antara 0 hingga 25.000.000.");
         }
         
         try {
@@ -66,16 +69,21 @@ class SayaTubeUser {
     // method AddVideo yang dapat menambahkan elemen baru ke list uploadedVideos. 
     // nambahin ke dalam list kosong yg dibuat diatas
     addVideo(video) {
-        if (!(video instanceof SayaTubeVideo)) {
-            throw new Error("Parameter harus berupa instance dari SayaTubeVideo.");
+        // Validasi: Video tidak boleh null dan playCount harus dalam batas aman
+        if (!video || !(video instanceof SayaTubeVideo)) {
+            throw new Error("Parameter harus berupa instance dari SayaTubeVideo yang valid.");
         }
-        this.uploadedVideos.push(video); //push : nambah ke list
+        if (video.playCount > Number.MAX_SAFE_INTEGER) {
+            throw new Error("Video memiliki play count yang melebihi batas integer.");
+        }
+        this.uploadedVideos.push(video); // Tambahkan video ke dalam list
     }
     
     // PrintAllVideoPlaycount() yang melakukan print terhadap semua judul video
+    // Method untuk mencetak semua judul video yang diunggah (maksimal 8 video)
     printAllVideoPlaycount() {
         console.log(`User: ${this.username}`);
-        this.uploadedVideos.forEach((video, index) => {
+        this.uploadedVideos.slice(0, 8).forEach((video, index) => {
             console.log(`Video ${index + 1} judul: ${video.title}`);
         });
     }
@@ -98,9 +106,26 @@ const movies = [
 
 // Loop untuk membuat video berdasarkan daftar film
 movies.forEach(title => {
-    const video = new SayaTubeVideo(title);
-    user.addVideo(video); // Tambahkan video ke dalam daftar uploadedVideos user
-    video.increasePlayCount(Math.floor(Math.random() * 10000000));
+    try {
+        const video = new SayaTubeVideo(title); // Buat objek video dengan judul tertentu
+        user.addVideo(video); // Tambahkan video ke dalam daftar uploadedVideos user
+        video.increasePlayCount(Math.floor(Math.random() * 25000000)); // Tambahkan jumlah play count secara random
+    } catch (error) {
+        console.error("Gagal menambahkan video: " + error.message);
+    }
 });
+// Cetak semua video yang diunggah oleh user (maksimal 8 video)
 user.printAllVideoPlaycount();
+
+// Cetak total play count dari semua video user
 console.log(`Total play count dari semua video: ${user.getTotalVideoPlayCount()}`);
+
+// Pengujian exception dengan for loop untuk mencapai overflow
+const testVideo = new SayaTubeVideo("Video Test Overflow");
+try {
+    for (let i = 0; i < 1000; i++) {
+        testVideo.increasePlayCount(25000000);
+    }
+} catch (error) {
+    console.error("Terjadi exception pada pengujian overflow: " + error.message);
+}
