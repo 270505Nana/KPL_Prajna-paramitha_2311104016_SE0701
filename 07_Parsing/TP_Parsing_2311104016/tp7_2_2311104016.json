@@ -1,0 +1,32 @@
+{
+	"courses": [
+		{
+			"code": "CRI2C4",
+			"name": "Konstruksi Perangkat Lunak"
+		},
+		{
+			"code": "CCK2HAB4",
+			"name": "Basis Data"
+		},
+		{
+			"code": " CCK2FAB4",
+			"name": "Arsitektur dan Desain Perangkat Lunak"
+		},
+		{
+			"code": " CCK2GAB3",
+			"name": "Interaksi Manusia Komputer"
+		},
+		{
+			"code": " CCK2CAB3",
+			"name": "Pemodelan Perangkat Lunak"
+		},
+		{
+			"code": " CCK2JAC2",
+			"name": "Proyek Tingkat 2"
+		},
+		{
+			"code": " CCK1KAB3",
+			"name": "Rekayasa Kebutuhan Perangkat Lunak"
+		}
+	]
+}
