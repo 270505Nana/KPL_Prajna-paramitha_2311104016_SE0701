@@ -1,0 +1,15 @@
+{
+   "firstName": "Prajna Paramitha",
+   "lastName": "Wardhany",
+   "gender": "female",
+   "age": 20,
+   "address": {
+       "streetAddress": "JL.Ovis",
+       "city": "Purwokerto",
+       "state": "Central Java"
+   },
+   "courses": [
+       { "code": "CRI2C4", "name": "Konstruksi Perangkat Lunak" },
+       { "code": " CCK1KAB3", "name": "Rekayasa Kebutuhan Perangkat Lunak" }
+   ]
+}

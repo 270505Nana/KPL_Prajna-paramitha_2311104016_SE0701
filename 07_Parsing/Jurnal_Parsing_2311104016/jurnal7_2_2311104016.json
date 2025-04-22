@@ -1,0 +1,39 @@
+{
+  "members" : [
+    {
+       "firstName": "Prajna Paramitha",
+       "lastName": "Wardhany",
+       "gender": "female",
+       "age": 20,
+       "nim": "2311104016"
+    },
+    {
+       "firstName": "Novita Syahwa Tri",
+       "lastName": "Hapsari",
+       "gender": "female",
+       "age": 22,
+       "nim": "2311104007"
+    },
+    {
+       "firstName": "Mei Sari",
+       "lastName": "Mantiantini",
+       "gender": "female",
+       "age": 20,
+       "nim": "23111040012"
+    },
+    {
+       "firstName": "Tri",
+       "lastName": "Meylani",
+       "gender": "female",
+       "age": 20,
+       "nim": "23111040001"
+    },
+    {
+       "firstName": "Martratus",
+       "lastName": "Sofia",
+       "gender": "female",
+       "age": 20,
+       "nim": "23111040003"
+    }
+  ]
+}
