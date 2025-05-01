@@ -1,0 +1,21 @@
+[
+    {
+      "name": "Prajna Paramitha Wardhany",
+      "nim": "2311104016",
+      "course": ["Pemrograman Web", "Basis Data", "Jaringan Komputer"],
+      "year": 2023
+    },
+    {
+      "name": "Novita Syahwa",
+      "nim": "2311104007",
+      "course": ["Matematika Diskrit", "AI Dasar", "Sistem Operasi"],
+      "year": 2023
+    },
+    {
+      "name": "Tri Mylani",
+      "nim": "2311104001",
+      "course": ["Struktur Data", "Pemrograman Berorientasi Objek", "Etika Profesi"],
+      "year": 2023
+    }
+  ]
+  
