@@ -1,5 +1,5 @@
 {
-  "name": "10_prisma",
+  "name": "management-mahasiswa",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -8,13 +8,13 @@
   },
   "keywords": [
     "React",
-    "Node JS",
+    "Node.js",
     "Express",
-    "MYSQL"
+    "Mysql"
   ],
-  "author": "prajna270505@gmail.com",
+  "author": "rvnkrwn@gmail.com",
   "license": "ISC",
-  "description": "ini adalah aplikasi manajemen mahasiswa",
+  "description": "Ini adalah aplikasi management mahasiswa",
   "dependencies": {
     "@prisma/client": "^6.6.0",
     "dotenv": "^16.5.0",

@@ -149,7 +149,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -163,12 +163,12 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "mysql://root:@localhost:3306/SE01_mhs"
+        "value": "mysql://root@localhost:3306/SE01_mhs"
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\n// kita mau pake db apa\ndatasource db {\n  provider = \"mysql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Mahasiswa {\n  id            Int          @id @default(autoincrement())\n  nim           String       @unique\n  nama_lengkap  String\n  email         String       @unique\n  no_hp         String\n  tanggal_lahir DateTime     @db.Date\n  jenis_kelamin JenisKelamin\n  created_at    DateTime     @default(now())\n  updated_at    DateTime     @updatedAt\n}\n\nenum JenisKelamin {\n  L\n  P\n}\n",
-  "inlineSchemaHash": "4345607ff655c68b9b092a1a28fe4bfa95b428b574557bdc79e5ca5fbe30d0fd",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mysql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Mahasiswa {\n  id            Int          @id @default(autoincrement())\n  nim           String       @unique\n  nama_lengkap  String\n  email         String       @unique\n  no_hp         String\n  tanggal_lahir DateTime     @db.Date\n  jenis_kelamin JenisKelamin\n  created_at    DateTime     @default(now())\n  updated_at    DateTime     @updatedAt\n}\n\nenum JenisKelamin {\n  L\n  P\n}\n",
+  "inlineSchemaHash": "d0e414fa7285e9b97f510855e8cd17e6611dac1c06038a50f2fd80c98e4ff90b",
   "copyEngine": true
 }
 config.dirname = '/'
