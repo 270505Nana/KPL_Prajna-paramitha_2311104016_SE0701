@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"> 
+  <title>Cari Tanda Bilangan</title>
+  <link rel="stylesheet" href="style.css"> <!-- Manggil file style.css yang udah dibuat sebelumnya -->
+</head>
+<body>
+  <div class="container"> <!-- Container utama untuk isi tampilan -->
+    <h2>Cek Tanda Bilangan</h2>
+    <input type="number" id="inputAngka" placeholder="Masukkan angka"> <!-- Textbox untuk input angka -->
+    <button onclick="cekTanda()">Cek</button> <!-- Button yang diklik akan memanggil fungsi cekTanda() -->
+    <p id="outputLabel">Hasil akan muncul di sini</p> <!-- Label untuk menampilkan hasil output -->
+  </div>
+
+  <script>
+    // Fungsi yang dipanggil saat tombol "Cek" diklik
+    function cekTanda() {
+      const angka = document.getElementById('inputAngka').value; 
+      fetch(`/cek?angka=${angka}`) 
+        .then(res => res.text())
+        .then(result => {
+          document.getElementById('outputLabel').innerText = result; // Tampilkan hasil dari server ke label output
+        });
+    }
+  </script>
+</body>
+</html>
