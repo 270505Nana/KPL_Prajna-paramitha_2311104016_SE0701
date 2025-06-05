@@ -4,28 +4,31 @@ public class Program
 {
     public static void Main()
     {
-        // Buat dua objek, tapi sebenarnya keduanya mengacu pada instance yang sama
-        PusatDataSingleton data1 = PusatDataSingleton.GetDataSingleton();
-        PusatDataSingleton data2 = PusatDataSingleton.GetDataSingleton();
+        // ✅ Clean Code: Penamaan variabel menggunakan camelCase untuk variabel lokal
+        // 🔧 Diperbaiki: Pemanggilan GetDataSingleton() → GetInstance()
+        PusatDataSingleton data1 = PusatDataSingleton.GetInstance();
+        PusatDataSingleton data2 = PusatDataSingleton.GetInstance();
 
-        // Menambahkan data menggunakan data1
-        data1.AddSebuahData("Nama 1: Nana");
-        data1.AddSebuahData("Nama 2: Andi");
-        data1.AddSebuahData("Asisten Praktikum: Budi");
+        // ✅ Clean Code: Method AddData lebih ringkas dan sesuai konvensi
+        // 🔧 Sebelumnya bernama AddSebuahData (kurang singkat dan eksplisit)
+        data1.AddData("Nama 1: Nana");
+        data1.AddData("Nama 2: Andi");
+        data1.AddData("Asisten Praktikum: Budi");
 
-        // Menampilkan semua data dari data2 (akan sama dengan data1 karena Singleton)
+        // ✅ Clean Code: PrintAllData adalah nama method yang jelas dan sesuai standar PascalCase
+        // 🔧 Sebelumnya bernama PrintSemuaData
         Console.WriteLine("\n[Cetak dari data2]");
-        data2.PrintSemuaData();
+        data2.PrintAllData();
 
-        // Menghapus data asisten (index ke-2, yaitu "Budi") dari data2
-        data2.HapusSebuahData(2);
+        // ✅ Clean Code: Gunakan nama method yang menjelaskan tindakan (RemoveDataAt)
+        // 🔧 Sebelumnya HapusSebuahData
+        data2.RemoveDataAt(2);
 
-        // Menampilkan data kembali dari data1 (Budi sudah tidak ada)
         Console.WriteLine("\n[Cetak dari data1 setelah penghapusan]");
-        data1.PrintSemuaData();
+        data1.PrintAllData();
 
-        // Menampilkan jumlah data dari kedua objek
-        Console.WriteLine($"\nJumlah data di data1: {data1.GetSemuaData().Count}");
-        Console.WriteLine($"Jumlah data di data2: {data2.GetSemuaData().Count}");
+        // ✅ Clean Code: Tidak ada duplikasi logika, method GetAllData() digunakan kembali
+        Console.WriteLine($"\nJumlah data di data1: {data1.GetAllData().Count}");
+        Console.WriteLine($"Jumlah data di data2: {data2.GetAllData().Count}");
     }
 }

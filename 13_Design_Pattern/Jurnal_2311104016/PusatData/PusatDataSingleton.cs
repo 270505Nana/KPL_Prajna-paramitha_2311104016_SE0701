@@ -1,41 +1,48 @@
 using System;
 using System.Collections.Generic;
+/// ✅ Clean Code: Kelas ini menerapkan pola desain Singleton dengan jelas
+/// Mengelola satu instance data string yang dapat diakses global.
 
 public class PusatDataSingleton
 {
-    // Static field untuk menyimpan satu-satunya instance dari class ini
+    // ✅ Clean Code: Penamaan _instance mengikuti konvensi field private di C#
     private static PusatDataSingleton _instance;
 
-    // Atribut data berupa List of string
-    public List<string> DataTersimpan;
+    // ✅ Clean Code: Gunakan properti publik dengan akses terbatas untuk keamanan
+    // 🔧 Sebelumnya: field public biasa tanpa encapsulation
+    public List<string> DataTersimpan { get; private set; }
 
-    // Konstruktor privat untuk mencegah instansiasi dari luar class
+    // ✅ Clean Code: Konstruktor private untuk mencegah pembuatan instance ganda
     private PusatDataSingleton()
     {
-        // Inisialisasi list kosong saat objek pertama kali dibuat
+        // ✅ Clean Code: Inisialisasi langsung di konstruktor
         DataTersimpan = new List<string>();
     }
 
-    // Method static yang digunakan untuk mengakses instance tunggal
-    public static PusatDataSingleton GetDataSingleton()
+    /// ✅ Clean Code: Nama method GetInstance lebih deskriptif dan umum digunakan pada Singleton
+    /// 🔧 Sebelumnya bernama GetDataSingleton
+    
+    public static PusatDataSingleton GetInstance()
     {
-        // Jika instance belum dibuat, buat dulu
         if (_instance == null)
         {
             _instance = new PusatDataSingleton();
         }
-        // Kembalikan instance yang sudah dibuat
+
         return _instance;
     }
 
-    // Method untuk mengambil semua data yang ada dalam list
-    public List<string> GetSemuaData()
+    /// ✅ Clean Code: Nama GetAllData menjelaskan tujuan method secara ringkas
+    
+    public List<string> GetAllData()
     {
         return DataTersimpan;
     }
 
-    // Method untuk mencetak semua data satu per satu ke konsol
-    public void PrintSemuaData()
+    /// ✅ Clean Code: PrintAllData menjelaskan tindakan secara jelas
+    /// 🔧 Sebelumnya PrintSemuaData
+    
+    public void PrintAllData()
     {
         if (DataTersimpan.Count == 0)
         {
@@ -44,20 +51,24 @@ public class PusatDataSingleton
         }
 
         Console.WriteLine("Data yang tersimpan:");
-        foreach (var data in DataTersimpan)
+        foreach (string data in DataTersimpan)
         {
             Console.WriteLine("- " + data);
         }
     }
 
-    // Method untuk menambahkan data baru ke dalam list
-    public void AddSebuahData(string input)
+    /// ✅ Clean Code: Nama AddData lebih konsisten dan ringkas
+    /// 🔧 Sebelumnya AddSebuahData
+    
+    public void AddData(string input)
     {
         DataTersimpan.Add(input);
     }
 
-    // Method untuk menghapus data berdasarkan index (posisi dalam list)
-    public void HapusSebuahData(int index)
+    /// ✅ Clean Code: RemoveDataAt menjelaskan bahwa kita menghapus data berdasarkan index
+    /// 🔧 Sebelumnya HapusSebuahData
+    
+    public void RemoveDataAt(int index)
     {
         if (index >= 0 && index < DataTersimpan.Count)
         {
